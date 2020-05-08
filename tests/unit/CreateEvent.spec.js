@@ -8,8 +8,14 @@ describe("CreateEvent", () => {
     expect(wrapper.contains("h1")).toBe(true);
   });
 
-  test("it has an <h1> heading with a Create an Event text content", () => {
+  test("title imput field", () => {
     const wrapper = mount(CreateEvent);
-    expect(wrapper.get("h1").text()).toBe("Create an Event");
+    expect(wrapper.contains("input[value='Create'][type='submit']")).toBe(true);
+  });
+
+  test("shld contain an input field fo the title", () => {
+    const wrapper = mount(CreateEvent);
+    const titleInput = wrapper.get("input[name='title']");
+    expect(titleInput.attributes("placeholder")).toBe("Add a title");
   });
 });
